@@ -1,34 +1,20 @@
 package com.spring.common.vo;
 
 public class CommonVO {
-	private String page; // 페이지번호
+	private String page; // 페이지 번호
 	private String pageSize; // 페이지에 보여주는 줄수
-	private String start_row; // 시작 레코드 번호
+	private String start_row;// 시작 레코드 번호
 	private String end_row; // 종료 레코드 번호
-
-	// 조건 검색시 사용할 필드
+	// 조건검색시 사용할 필드
 	private String search = "";
 	private String keyword = "";
-
 	// 제목 클릭시 정렬을 위한 필드
 	private String order_by;
 	private String order_sc;
-
 	// 클라이언트에게 코드나 결과 내용을 위한 필드
+
 	private String result_cd;
 	private String result_msg;
-
-	public String getResult_msg() {
-		return result_msg;
-	}
-
-	public void setResult_msg(String result_msg) {
-		this.result_msg = result_msg;
-	}
-
-	public String getpage() {
-		return page;
-	}
 
 	public String getPage() {
 		return page;
@@ -102,4 +88,11 @@ public class CommonVO {
 		this.result_cd = result_cd;
 	}
 
+	public String getResult_msg() {
+		return result_msg;
+	}
+
+	public void setResult_msg(String result_msg) {
+		this.result_msg = result_msg;
+	}
 }

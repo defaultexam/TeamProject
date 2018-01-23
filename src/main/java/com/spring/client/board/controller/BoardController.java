@@ -16,7 +16,6 @@ import com.spring.client.board.vo.BoardVO;
 import com.spring.common.page.Paging;
 import com.spring.common.util.Util;
 
-/*ㅆ:ㅣ발*/
 @Controller
 @RequestMapping(value = "/board")
 public class BoardController {
@@ -24,13 +23,11 @@ public class BoardController {
 	@Autowired
 	private BoardService boardService;
 
-	@RequestMapping(value = "/boardList.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/boardList", method = RequestMethod.GET)
 	public String boardList(@ModelAttribute BoardVO bvo, Model model) {
 		logger.info("boardList 호출 성공");
-
 		// 페이지 세팅
 		Paging.setPage(bvo);
-
 		// 전체 레코드수 구현
 		int total = boardService.boardListCnt(bvo);
 		logger.info("total = " + total);
