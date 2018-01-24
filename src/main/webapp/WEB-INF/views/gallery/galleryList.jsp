@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-	<%@ taglib prefix="tag" uri="/WEB-INF/tld/custom_tag.tld" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="tag" uri="/WEB-INF/tld/custom_tag.tld"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,7 +42,7 @@
 								return;
 							else if (!chkFile($('#file')))
 								return;
-							else if (!checkForm($('#g_ped'), "비밀번호를"))
+							else if (!checkForm($('#g_pwd'), "비밀번호를"))
 								return;
 							else {
 								$("#f_writeForm")
@@ -72,6 +72,8 @@
 														}
 													}
 												});
+								$("#f_writeForm").submit();
+
 							}
 
 						});
@@ -128,11 +130,11 @@
 			"data-toggle" : "collapse",
 			"data-parent" : "#accordion",
 			"href" : "#collapse" + index,
-			"aria-controls" : "collapse" + omdex
+			"aria-controls" : "collapse" + index
 		});
 		if (index == 0) {
 			title.attr({
-				"aria-expabded" : "true"
+				"aria-expanded" : "true"
 			});
 		} else {
 			title.attr({
@@ -141,7 +143,7 @@
 			title.addClass("collapsed");
 		}
 		title.html(g_subject);
-		var pandel_body = $("<div>");
+		var panel_body = $("<div>");
 		panel_body.addClass("panel-collapse collapse");
 		if (index == 0) {
 			panel_body.addClass("in");
@@ -149,10 +151,10 @@
 		panel_body.attr({
 			id : 'collapse' + index,
 			role : 'tabpanel',
-			"aria-labellendby" : 'heading' + index
+			"aria-labelledby" : 'heading' + index
 		});
 		var body = $("<div>")
-		body.addClass("panel-bodt")
+		body.addClass("panel-body")
 		var thumb_img_area = $("<div>");
 		thumb_img_area.addClass("col-md-2");
 
@@ -172,10 +174,10 @@
 		var con = $("<p>");
 		con.addClass("form-control-static");
 		con.html(g_content);
-		
+
 		body.append(thumb_img_area.append(lightbox_a.append(thumb_img)));
 		body.append(date).append(con);
-		
+
 		panel.append(panel_heading.append(panel_title.append(title)));
 		panel.append(panel_body.append(body));
 		$("#accordion").append(panel);
@@ -195,8 +197,8 @@
 			aria-multiselectable="true"></div>
 
 		<!-- 갤러리 등록 화면 영역(modal) -->
-		<div class="modal fade" id="gallertModal" tabindex="-1" role="dialog"
-			aria-labelledby="gallerModalLabel" aria-hidden="true">
+		<div class="modal fade" id="galleryModal" tabindex="-1" role="dialog"
+			aria-labelledby="galleryModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">

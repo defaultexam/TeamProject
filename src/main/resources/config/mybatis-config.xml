@@ -2,5 +2,6 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.spring.client.board.vo.BoardVO" alias="board" />
+		<typeAlias type="com.spring.client.gallery.vo.GalleryVO" alias="gallery" />
 	</typeAliases>
 </configuration> 
