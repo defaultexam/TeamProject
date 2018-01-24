@@ -1,5 +1,7 @@
 package com.spring.client.board.vo;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import com.spring.common.vo.CommonVO;
 
 public class BoardVO extends CommonVO {
@@ -9,6 +11,37 @@ public class BoardVO extends CommonVO {
 	private String b_content = ""; // 내용
 	private String b_date = ""; // 작성일
 	private String b_pwd = ""; // 비밀번호
+
+	// 파일 업로드를 위한 속성
+	private MultipartFile file; // 첨부파일
+	private String b_file = ""; // 실제 서버에 저장한 파일명
+
+	// 댓글수를 위한 속성
+	private int r_cnt = 0;
+
+	public MultipartFile getFile() {
+		return file;
+	}
+
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
+
+	public String getB_file() {
+		return b_file;
+	}
+
+	public void setB_file(String b_file) {
+		this.b_file = b_file;
+	}
+
+	public int getR_cnt() {
+		return r_cnt;
+	}
+
+	public void setR_cnt(int r_cnt) {
+		this.r_cnt = r_cnt;
+	}
 
 	public int getB_num() {
 		return b_num;
