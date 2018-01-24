@@ -11,7 +11,8 @@
 		HH24:MI:SS') as r_date
 		FROM spring_reply
 		WHERE b_num = #{b_num}
-		order by r_num desc
+		order by
+		r_num desc
 	</select>
 
 	<!-- 댓글 등록 -->
@@ -51,6 +52,11 @@
 	<delete id="replyDelete" parameterType="reply">
 		<!-- Reply - replyDelete -->
 		DELETE FROM spring_reply WHERE r_num = #{r_num}
+	</delete>
+
+	<!-- 댓글 삭제(게시글 번호로 댓글 전체 삭제) -->
+	<delete id="replyChoiceDelete" parameterType="reply">
+		delete from spring_reply where b_num = #{b_num}
 	</delete>
 
 </mapper>

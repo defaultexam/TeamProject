@@ -41,4 +41,10 @@ public class ReplyDaoImpl implements ReplyDao {
 	public int replyDelete(int r_num) {
 		return session.delete("replyDelete", r_num);
 	}
+
+	// 글삭제 구현(게시글 번호로 해당 게시글 전체 댓글 삭제)
+	@Override
+	public int replyChoiceDelete(int b_num) {
+		return session.delete("replyChoiceDelete", b_num);
+	}
 }

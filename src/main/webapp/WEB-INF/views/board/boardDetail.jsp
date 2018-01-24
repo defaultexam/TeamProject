@@ -39,12 +39,34 @@
 			butChk = 1;
 		});
 
-		/* 삭제 버튼 클릭 시 처리 이벤트 */
-		$("#boardDeleteBtn").click(function() {
-			$("#pwdChk").show();
-			$("#msg").text("작성시 입력한 비밀번호를 입력해 주세요.").css("color", "#000099");
-			btnChk = 2;
-		});
+		/* 삭제 버튼 클릭 시 댓글 확인 후 처리 이벤트 */
+		$("#boardDeleteBtn")
+				.click(
+						function() {
+							$
+									.ajax({
+										url : "/board/replyCnt.do",
+										type : "post",
+										data : "b_num=" + $("#b_num").val(),
+										dataType : "text",
+										error : function() {
+											alert('시스템 오류 입니다. 관리자에게 문의 하세요');
+										},
+										success : function(resultData) {
+											if (resultData == 0) {
+												$("#pwdChk").show();
+												$("#msg")
+														.text(
+																"작성시 입력한 비밀번호를 입력해 주세요")
+														.css("color", "#000099");
+												butChk = 2;
+											} else {
+												alert("댓글 존재시 게시물을 삭제 할 수 없습니다.\n 댓글 삭제 후 다시 확인해 주세요.");
+												return;
+											}
+										}
+									});
+						});
 
 		/* 비밀번호 확인 버튼 클릭 시 처리 이벤트 */
 		$("#pwdBtn").click(function() {

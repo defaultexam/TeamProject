@@ -13,4 +13,5 @@ public interface BoardService {
 	public int boardDelete(int b_num);
 	public List<BoardVO> boardList(BoardVO bvo);
 	public int boardListCnt(BoardVO bvo);
+	public int replyCnt(int b_num);
 }
