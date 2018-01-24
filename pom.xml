@@ -82,10 +82,17 @@
 		</dependency>
 
 		<!-- tiles -->
-		<!-- <dependency> <groupId>org.apache.tiles</groupId> <artifactId>tiles-core</artifactId> 
-			<version>${tiles-version}</version> </dependency> <dependency> <groupId>org.apache.tiles</groupId> 
-			<artifactId>tiles-jsp</artifactId> <version>${tiles-version}</version> </dependency> -->
-
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-core</artifactId>
+			<version>3.0.8</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-jsp</artifactId>
+			<version>3.0.8</version>
+		</dependency>
+		
 		<!-- 썸네일을 생성하는 코드로 imageScalr 라이브러리 활용 -->
 		<dependency>
 			<groupId>org.imgscalr</groupId>
