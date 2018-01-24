@@ -14,16 +14,16 @@ import com.spring.client.gallery.vo.GalleryVO;
 @Transactional
 public class GalleryServiceImpl implements GalleryService {
 	Logger logger = Logger.getLogger(GalleryServiceImpl.class);
-	
+
 	@Autowired
-	private GalleryDao gallerydDao;
-	
+	private GalleryDao galleryDao;
+
 	// 글 목록 구현
 	@Override
 	public List<GalleryVO> galleryList() {
 		List<GalleryVO> myList = null;
-		myList = gallerydDao.galleryList();
-		
+		myList = galleryDao.galleryList();
+
 		return myList;
 	}
 
@@ -31,10 +31,10 @@ public class GalleryServiceImpl implements GalleryService {
 	@Override
 	public int galleryInsert(GalleryVO gvo) {
 		int result = 0;
-		
+
 		try {
-			result = gallerydDao.galleryInsert(gvo);
-		}catch(Exception e) {
+			result = galleryDao.galleryInsert(gvo);
+		} catch (Exception e) {
 			e.printStackTrace();
 			result = 0;
 		}
