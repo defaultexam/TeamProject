@@ -32,54 +32,53 @@
 		listData();
 		/* 저장 버튼 클릭 시 처리 이벤트 */
 		$("#galleryInsertBtn")
-				.click(
-						function() {
-							//입력값 체크
-							if (!checkForm($('#g_name'), "작성자를"))
-								return;
-							else if (!checkForm($('#g_subject'), "글제목을"))
-								return;
-							else if (!checkForm($('#g_content'), "간단한 내용을"))
-								return;
-							else if (!checkForm($('#file'), "등록할 이미지를"))
-								return;
-							else if (!chkFile($('#file')))
-								return;
-							else if (!checkForm($('#g_pwd'), "비밀번호를"))
-								return;
-							else {
-								$("#f_writeForm")
-										.ajaxForm(
-												{
-													url : "/gallery/galleryInsert.do",
-													type : "post",
-													enctype : "multipart/form-data",
-													dataType : "text",
-													error : function() {
-														alert('시스템 오류 입니다. 관리자에게 문의하세요');
-													},
-													success : function(data) {
-														console.log(data);
-														//alert(data);
-														if (data == "성공") {
-															resetData();
-															$('#galleryModal')
-																	.modal(
-																			'hide');
-															listData();
-														} else {
-															alert("["
-																	+ data
-																	+ "]\n 등록에 문제가 있어 완료하지 못하였습니다. 잠시 후 다시 시도해 주세요.");
-															resetData();
-														}
-													}
-												});
-								$("#f_writeForm").submit();
+			.click(
+				function() {
+					//입력값 체크
+					if (!checkForm($('#g_name'), "작성자를"))
+						return;
+					else if (!checkForm($('#g_subject'), "글제목을"))
+						return;
+					else if (!checkForm($('#g_content'), "간단한 내용을"))
+						return;
+					else if (!checkForm($('#file'), "등록할 이미지를"))
+						return;
+					else if (!chkFile($('#file')))
+						return;
+					else if (!checkForm($('#g_pwd'), "비밀번호를"))
+						return;else {
+						$("#f_writeForm")
+							.ajaxForm(
+								{
+									url : "/gallery/galleryInsert.do",
+									type : "post",
+									enctype : "multipart/form-data",
+									dataType : "text",
+									error : function() {
+										alert('시스템 오류 입니다. 관리자에게 문의하세요');
+									},
+									success : function(data) {
+										console.log(data);
+										//alert(data);
+										if (data == "성공") {
+											resetData();
+											$('#galleryModal')
+												.modal(
+													'hide');
+											listData();
+										} else {
+											alert("["
+												+ data
+												+ "]\n 등록에 문제가 있어 완료하지 못하였습니다. 잠시 후 다시 시도해 주세요.");
+											resetData();
+										}
+									}
+								});
+						$("#f_writeForm").submit();
 
-							}
+					}
 
-						});
+				});
 	});
 
 	// 초기화 작업
@@ -93,28 +92,28 @@
 	function listData() {
 		$("#accordion").html("");
 		$.getJSON(
-				"/gallery/galleryData.do",
-				function(data) {
-					console.log(data.length);
-					$(data).each(
-							function(index) {
-								var g_name = this.g_name;
-								var g_subject = this.g_subject;
-								var g_content = this.g_content;
-								var g_thumb = this.g_thumb;
-								var g_file = this.g_file;
-								var g_date = this.g_date;
-								console.log("index :" + index);
-								newRecord(g_name, g_subject, g_content,
-										g_thumb, g_file, g_date, index);
-							});
-				}).fail(function() {
+			"/gallery/galleryData.do",
+			function(data) {
+				console.log(data.length);
+				$(data).each(
+					function(index) {
+						var g_name = this.g_name;
+						var g_subject = this.g_subject;
+						var g_content = this.g_content;
+						var g_thumb = this.g_thumb;
+						var g_file = this.g_file;
+						var g_date = this.g_date;
+						console.log("index :" + index);
+						newRecord(g_name, g_subject, g_content,
+							g_thumb, g_file, g_date, index);
+					});
+			}).fail(function() {
 			alert("목록을 불러오는데 실패하였습니다. 잠시후에 다시 시도해 주세요.");
 		});
 	}
 	//부트스트랩을 활용하여 메소드 생성
 	function newRecord(g_name, g_subject, g_content, g_thumb, g_file, g_date,
-			index) {
+		index) {
 		var panel = $("<div>");
 		panel.addClass("panel panel-default");
 
@@ -176,7 +175,7 @@
 		var date = $("<p>");
 		date.addClass("form-control-static");
 		date.html(g_date);
-		
+
 		var con = $("<p>");
 		con.addClass("form-control-static");
 		con.html(g_content);
