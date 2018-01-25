@@ -14,11 +14,10 @@
 		with
 		<code>padding-top: 60px;</code>
 		on the
-		<code>body > .container</code>
-		.
+		<code>body > .container</code>.
 	</p>
 	<p>
-		Back to <a href="../sticky-footer">the default sticky footer</a> minus
+		Back to <a href="../">the default sticky footer</a> minus
 		the navbar.
 	</p>
 </div>
