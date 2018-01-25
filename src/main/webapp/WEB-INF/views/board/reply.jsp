@@ -23,8 +23,7 @@
 		btnKind = "";
 	$(function() {
 		/* 기본 댓글 목록 불러오기 */
-		var b_num = "${detail.b_num}";
-		alert(b_num);
+		var b_num = "<c:out value='${detail.b_num}' />";
 		listAll(b_num);
 
 		/* 덧글 내용 저장 이벤트 */
@@ -70,6 +69,7 @@
 		/* 수정 버튼 클릭시 수정폼 출력 */
 		$(document).on("click", ".update_form", function() {
 			$(".reset_btn").click();
+			alert("아");
 			var currLi = $(this).parents("li");
 			if (pwdConfirm == 0) {
 				replyNum = currLi.attr("data-num");
@@ -279,8 +279,9 @@
 		content_p.html(r_content);
 
 		// 조립하기
-		writer_p.append(name_span).append(date_span).append(up_input).append(del_input);
-		new_li.append(writer_p).append(content_p); $("#comment_list").append(new_li);
+		writer_p.append(name_span).append(date_span).append(up_input).append(del_input)
+		new_li.append(writer_p).append(content_p);
+		$("#comment_list").append(new_li);
 	}
 
 	function dataReset() {
