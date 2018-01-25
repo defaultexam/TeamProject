@@ -11,7 +11,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <title>겔러리 리스트</title>
 <link rel="stylesheet" type="text/css"
-	href="/resources/include/scc/common.css" />
+	href="/resources/include/css/common.css" />
 <link rel="stylesheet" type="text/css"
 	href="/resources/include/css/lightbox.css" />
 
