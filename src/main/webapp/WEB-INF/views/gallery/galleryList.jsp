@@ -80,6 +80,11 @@
 							}
 
 						});
+
+		$("#bye").click(function() {
+			resetData();
+		});
+
 	});
 
 	// 초기화 작업
@@ -176,7 +181,7 @@
 		var date = $("<p>");
 		date.addClass("form-control-static");
 		date.html(g_date);
-		
+
 		var con = $("<p>");
 		con.addClass("form-control-static");
 		con.html(g_content);
@@ -243,7 +248,7 @@
 					</div>
 
 					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal" id="bye">닫기</button>
 						<button type="button" class="btn btn-primary"
 							id="galleryInsertBtn">등록</button>
 					</div>

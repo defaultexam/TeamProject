@@ -43,7 +43,7 @@
 	<update id="replyUpdate" parameterType="reply">
 		<!-- Reply - replyUpdate -->
 		UPDATE spring_reply
-		SET r_ content = #{r_content},
+		SET r_content = #{r_content},
 		r_date = sysdate
 		WHERE r_num = #{r_num}
 	</update>
