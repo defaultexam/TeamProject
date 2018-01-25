@@ -41,10 +41,18 @@
 
 	<!-- 댓글 수정 -->
 	<update id="replyUpdate" parameterType="reply">
+
 		update spring_reply set
 		r_content = #{r_content}, r_date = sysdate
 		where r_num
 		= #{r_num}
+
+		<!-- Reply - replyUpdate -->
+		UPDATE spring_reply
+		SET r_content = #{r_content},
+		r_date = sysdate
+		WHERE r_num = #{r_num}
+
 	</update>
 
 	<!-- 댓글 삭제 -->

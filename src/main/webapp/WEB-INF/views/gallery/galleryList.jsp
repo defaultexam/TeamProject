@@ -11,7 +11,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <title>겔러리 리스트</title>
 <link rel="stylesheet" type="text/css"
-	href="/resources/include/scc/common.css" />
+	href="/resources/include/css/common.css" />
 <link rel="stylesheet" type="text/css"
 	href="/resources/include/css/lightbox.css" />
 
@@ -78,7 +78,16 @@
 
 					}
 
+<<<<<<< HEAD
 				});
+=======
+						});
+
+		$("#bye").click(function() {
+			resetData();
+		});
+
+>>>>>>> branch 'master' of https://github.com/defaultexam/TeamProject.git
 	});
 
 	// 초기화 작업
@@ -242,7 +251,7 @@
 					</div>
 
 					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal" id="bye">닫기</button>
 						<button type="button" class="btn btn-primary"
 							id="galleryInsertBtn">등록</button>
 					</div>
