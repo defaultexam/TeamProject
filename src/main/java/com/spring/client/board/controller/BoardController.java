@@ -21,7 +21,7 @@ import com.spring.client.board.vo.BoardVO;
 import com.spring.common.file.FileUploadUtil;
 import com.spring.common.page.Paging;
 import com.spring.common.util.Util;
-
+/*컨트롤러*/
 @Controller
 @RequestMapping(value = "/board")
 public class BoardController {
