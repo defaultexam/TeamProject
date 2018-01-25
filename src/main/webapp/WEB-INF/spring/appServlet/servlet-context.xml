@@ -24,24 +24,32 @@
 
 	<!-- 타일즈(tiles) 설정 -->
 	<beans:bean id="tilesConfigurer"
-	class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
 		<beans:property name="definitions">
 			<beans:list>
 				<beans:value>/WEB-INF/tiles/tiles-setting.xml</beans:value> <!-- <beans:value>/WEB-INF/tiles/admin-setting.xml</beans:value> -->
 			</beans:list>
 		</beans:property>
 	</beans:bean>
+	
 	<beans:bean id="tilesViewResolver"
 		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<beans:property name="viewClass"
 			value="org.springframework.web.servlet.view.tiles3.TilesView" />
 		<beans:property name="order" value="1" /> <!-- 우선순위설정 -->
 	</beans:bean>
+	
 	<beans:bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 		<beans:property name="order" value="2" />
+	</beans:bean>
+
+	<beans:bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="defaultEncoding" value="UTF-8" />
+		<beans:property name="maxUploadSize" value="5242880" />
 	</beans:bean>
 
 	<context:component-scan base-package="com.spring.**.**.**" />
