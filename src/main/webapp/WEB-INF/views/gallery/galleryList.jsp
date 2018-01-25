@@ -12,15 +12,18 @@
 <title>겔러리 리스트</title>
 <link rel="stylesheet" type="text/css"
 	href="/resources/include/scc/common.css" />
+<link rel="stylesheet" type="text/css"
+	href="/resources/include/css/lightbox.css" />
+
 <script type="text/javascript"
 	src="/resources/include/js/jquery-1.12.4.min.js"></script>
 <script type="text/javascript"
 	src="/resources/include/js/jquery.form.min.js"></script>
 <script type="text/javascript" src="/resources/include/js/common.js"></script>
-<link rel="stylesheet" type="text/css"
-	href="/resources/include/css/lightbox.css" />
 <script type="text/javascript"
 	src="/resources/include/js/lightbox.min.js"></script>
+<!-- <script type="text/javascript"
+	src="http://code.jquery.com/jquery-latest.min.js"></script> -->
 <script type="text/javascript">
 	$(function() {
 		//newRecord() 임의 값으로 메서드 확인
@@ -29,7 +32,7 @@
 		listData();
 		/* 저장 버튼 클릭 시 처리 이벤트 */
 		$("#galleryInsertBtn")
-				.clik(
+				.click(
 						function() {
 							//입력값 체크
 							if (!checkForm($('#g_name'), "작성자를"))
@@ -122,7 +125,7 @@
 			id : "heading" + index
 		});
 
-		var title = $("<h4>");
+		var panel_title = $("<h4>");
 		panel_title.addClass("panel-title");
 
 		var title = $("<a>");
@@ -153,8 +156,8 @@
 			role : 'tabpanel',
 			"aria-labelledby" : 'heading' + index
 		});
-		var body = $("<div>")
-		body.addClass("panel-body")
+		var body = $("<div>");
+		body.addClass("panel-body");
 		var thumb_img_area = $("<div>");
 		thumb_img_area.addClass("col-md-2");
 
@@ -165,12 +168,15 @@
 			"data-lightbox" : "roadtrip"
 		});
 
+		var thumb_img = $("<img>");
+
 		// 메서드 확인 시 아래 경로로 확인
 		thumb_img.attr("src", "/uploadStorage/gallery/thumbnail/" + g_thumb);
 		thumb_img.addClass("img-thumbnail");
 		var date = $("<p>");
 		date.addClass("form-control-static");
 		date.html(g_date);
+		
 		var con = $("<p>");
 		con.addClass("form-control-static");
 		con.html(g_content);
@@ -208,6 +214,7 @@
 						</button>
 						<h4 class="modal-title" id="galleryModalLabel">갤러리 등록</h4>
 					</div>
+
 					<div class="modal-body">
 						<form id="f_writeForm" name="f_writeForm">
 							<div class="form-group">
@@ -234,6 +241,7 @@
 							</div>
 						</form>
 					</div>
+
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
 						<button type="button" class="btn btn-primary"
