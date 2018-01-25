@@ -20,7 +20,7 @@
 	</definition>
 	<definition name="board/*" extends="content">
 		<put-attribute name="title" value="기본 게시판" />
-		<put-attribute name="body" value="/WEB-INF/views/board/boardList.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/board/{1}.jsp" />
 	</definition>
 	<definition name="replies/*" extends="content">
 		<put-attribute name="body" value="/WEB-INF/views/board/reply.jsp" />
