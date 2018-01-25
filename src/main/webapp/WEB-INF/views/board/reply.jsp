@@ -69,7 +69,6 @@
 		/* 수정 버튼 클릭시 수정폼 출력 */
 		$(document).on("click", ".update_form", function() {
 			$(".reset_btn").click();
-			alert("아");
 			var currLi = $(this).parents("li");
 			if (pwdConfirm == 0) {
 				replyNum = currLi.attr("data-num");
@@ -77,12 +76,11 @@
 				pwdView(currLi);
 			} else if (pwdConfirm == 1) {
 				var conText = currLi.children().eq(1).html();
-				//console.log("conText : " + conText);
-
+				//console.log("conText: " + conText); 
 				currLi.find("input[type='button']").hide();
 				var conArea = currLi.children().eq(1);
 				conArea.html("");
-				var data = "<textarea name = 'content' id = 'content'>" + conText + "</textarea>";
+				var data = "<textarea name='content' id='content'>" + conText + "</textarea>";
 				data += "<input type='button' class='update_btn'  value='수정완료'>";
 				data += "<input type='button' class='reset_btn'  value='수정취소'>";
 				conArea.html(data);
@@ -100,12 +98,10 @@
 		});
 
 		/* 글 수정을 위한 Ajax 연동 처리 */
-		$(document).on("click", "update_btn", function() {
+		$(document).on("click", ".update_btn", function() {
 			var r_num = $(this).parents("li").attr("data-num");
 			var r_content = $("#content").val();
-			if (!chkData("#content", "댓글 내용을")) {
-				return;
-			} else {
+			if (!chkData("#content", "댓글 내용을")) return; else {
 				$.ajax({
 					url : '/replies/' + r_num + ".do",
 					type : 'put',
@@ -113,9 +109,9 @@
 						"Content-Type" : "application/json",
 						"X-HTTP-Method-Override" : "PUT"
 					},
-					data : JSON / seringify({
-							r_content : r_content
-						}),
+					data : JSON.stringify({
+						r_content : r_content
+					}),
 					dataType : 'text',
 					success : function(result) {
 						console.log("result: " + result);
@@ -217,7 +213,17 @@
 			}
 		});
 	});
-
+	function pwdView(area) {
+		$(".pwdResetBut").click();
+		var pwd_div = $("<div>");
+		var data = "<form name='f_pwd'>"
+		data += "<label for='passwd'>비밀번호 : </label>";
+		data += "<input type='password' name='passwd' class='passwd'/> ";
+		data += "<input type='button' class='pwdCheckBut' value='확인' />";
+		data += "<input type='button' class='pwdResetBut' value='취소' />";
+		data += "<span class='r_msg msg_default'>" + message + "</span></form>";
+		pwd_div.html(data); area.append(pwd_div);
+	}
 	// 리스트 요청 함수
 	function listAll(b_num) {
 		$("#comment_list").html("");
