@@ -5,5 +5,6 @@
 		<typeAlias type="com.spring.client.gallery.vo.GalleryVO"
 			alias="gallery" />
 		<typeAlias type="com.spring.client.reply.vo.ReplyVO" alias="reply" />
+		<typeAlias type="com.spring.client.login.vo.LoginVO" alias="login" />
 	</typeAliases>
 </configuration> 
