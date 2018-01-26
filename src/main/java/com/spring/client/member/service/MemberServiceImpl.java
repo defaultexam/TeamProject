@@ -81,7 +81,7 @@ public class MemberServiceImpl implements MemberService {
 
 		try {
 
-			mCode = memberDao.securityDelete(userId);
+			mCode = memberDao.memberDelete(userId);
 			if (mCode == 1) {
 				sCode = memberDao.securityDelete(userId);
 				if (sCode == 1) {
