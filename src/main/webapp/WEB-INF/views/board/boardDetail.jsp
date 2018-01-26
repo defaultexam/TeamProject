@@ -26,7 +26,7 @@
 		var file = "<c:out value='${detail.b_file}'/>";
 		if (file != "") {
 			$("#fileImage").attr({
-				src : "/resources/uploadStorage/board/${detail.b_file}",
+				src : "/uploadStorage/board/${detail.b_file}",
 				width : "450px",
 				height : "200px"
 			});

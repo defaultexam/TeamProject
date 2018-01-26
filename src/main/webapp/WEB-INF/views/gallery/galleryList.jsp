@@ -176,14 +176,14 @@
 		var lightbox_a = $("<a>");
 		// 메서드 확인 시 아래 경로로 확인
 		lightbox_a.attr({
-			"href" : "/resources/uploadStorage/gallery/" + g_file,
+			"href" : "/uploadStorage/gallery/" + g_file,
 			"data-lightbox" : "roadtrip"
 		});
 
 		var thumb_img = $("<img>");
 
 		// 메서드 확인 시 아래 경로로 확인
-		thumb_img.attr("src", "/resources/uploadStorage/gallery/thumbnail/" + g_thumb);
+		thumb_img.attr("src", "/uploadStorage/gallery/thumbnail/" + g_thumb);
 		thumb_img.addClass("img-thumbnail");
 
 		var date = $("<p>");
