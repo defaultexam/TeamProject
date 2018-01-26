@@ -37,7 +37,8 @@ public class FileUploadUtil {
 		if (org_name != null && (!org_name.equals(""))) {
 			real_name = fileName + "_" + System.currentTimeMillis() + "_" + org_name;
 			// 저장할 파일 이름
-			String docRoot = request.getSession().getServletContext().getRealPath("/uploadStorage/" + fileName);
+			String docRoot = request.getSession().getServletContext().getRealPath("/resources/uploadStorage/" + fileName);
+			System.out.println(docRoot);
 			makeDir(docRoot);
 			File fileAdd = new File(docRoot + "/" + real_name); // 파일 생성후
 			logger.info("업로드할 파일(fileAdd) : " + fileAdd);
@@ -52,7 +53,7 @@ public class FileUploadUtil {
 
 		boolean result = false;
 		String dirName = fileName.substring(0, fileName.indexOf("_"));
-		String docRoot = request.getSession().getServletContext().getRealPath("/uploadStorage/" + dirName);
+		String docRoot = request.getSession().getServletContext().getRealPath("/resources/uploadStorage/" + dirName);
 		File fileDelete = new File(docRoot + "/" + fileName); // 파일 생성후
 		logger.info("삭제할 파일(fileDelete) : " + fileDelete);
 		if (fileDelete.exists() && fileDelete.isFile()) {
@@ -65,7 +66,7 @@ public class FileUploadUtil {
 	public static String makeThumbnail(String fileName, HttpServletRequest request) throws Exception {
 		String dirName = fileName.substring(0, fileName.indexOf("_"));
 		// 이미지가 존재하는 폴더 추출
-		String imgPath = request.getSession().getServletContext().getRealPath("/uploadStorage/" + dirName);
+		String imgPath = request.getSession().getServletContext().getRealPath("/resources/uploadStorage/" + dirName);
 
 		// 추출된 폴더의 실제 경로(물리적 위치 : c:\...)
 		File fileAdd = new File(imgPath, fileName);
