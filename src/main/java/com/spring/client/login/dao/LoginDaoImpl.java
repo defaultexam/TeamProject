@@ -15,7 +15,7 @@ public class LoginDaoImpl implements LoginDao {
 	@Override
 	public LoginVO userIdSelect(String userid) {
 
-		return (LoginVO) session.selectOne("useridSelect", userid);
+		return (LoginVO) session.selectOne("userIdSelect", userid);
 	}
 
 	@Override
