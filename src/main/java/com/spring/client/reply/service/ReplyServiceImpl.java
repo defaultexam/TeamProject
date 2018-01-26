@@ -14,6 +14,7 @@ import com.spring.client.reply.vo.ReplyVO;
 @Transactional
 public class ReplyServiceImpl implements ReplyService {
 	Logger logger = Logger.getLogger(ReplyServiceImpl.class);
+
 	@Autowired
 	private ReplyDao replyDao;
 
@@ -54,8 +55,9 @@ public class ReplyServiceImpl implements ReplyService {
 			result = 0;
 		}
 		return result;
-	} // 글삭제 구현
+	}
 
+	// 글삭제 구현
 	@Override
 	public int replyDelete(int r_num) {
 		int result = 0;

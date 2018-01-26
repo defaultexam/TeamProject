@@ -41,11 +41,18 @@
 
 	<!-- 댓글 수정 -->
 	<update id="replyUpdate" parameterType="reply">
+
+		update spring_reply set
+		r_content = #{r_content}, r_date = sysdate
+		where r_num
+		= #{r_num}
+
 		<!-- Reply - replyUpdate -->
 		UPDATE spring_reply
 		SET r_content = #{r_content},
 		r_date = sysdate
 		WHERE r_num = #{r_num}
+
 	</update>
 
 	<!-- 댓글 삭제 -->
@@ -56,7 +63,8 @@
 
 	<!-- 댓글 삭제(게시글 번호로 댓글 전체 삭제) -->
 	<delete id="replyChoiceDelete" parameterType="reply">
-		delete from spring_reply where b_num = #{b_num}
+		delete from
+		spring_reply where b_num = #{b_num}
 	</delete>
 
 </mapper>

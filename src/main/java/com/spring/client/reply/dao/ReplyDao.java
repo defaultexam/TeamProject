@@ -14,6 +14,6 @@ public interface ReplyDao {
 	public int replyUpdate(ReplyVO rvo);
 
 	public int replyDelete(int r_num);
-	
+
 	public int replyChoiceDelete(int b_num);
 }

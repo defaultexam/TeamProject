@@ -41,32 +41,32 @@
 
 		/* 삭제 버튼 클릭 시 댓글 확인 후 처리 이벤트 */
 		$("#boardDeleteBtn")
-				.click(
-						function() {
-							$
-									.ajax({
-										url : "/board/replyCnt.do",
-										type : "post",
-										data : "b_num=" + $("#b_num").val(),
-										dataType : "text",
-										error : function() {
-											alert('시스템 오류 입니다. 관리자에게 문의 하세요');
-										},
-										success : function(resultData) {
-											if (resultData == 0) {
-												$("#pwdChk").show();
-												$("#msg")
-														.text(
-																"작성시 입력한 비밀번호를 입력해 주세요")
-														.css("color", "#000099");
-												butChk = 2;
-											} else {
-												alert("댓글 존재시 게시물을 삭제 할 수 없습니다.\n 댓글 삭제 후 다시 확인해 주세요.");
-												return;
-											}
-										}
-									});
+			.click(
+				function() {
+					$
+						.ajax({
+							url : "/board/replyCnt.do",
+							type : "post",
+							data : "b_num=" + $("#b_num").val(),
+							dataType : "text",
+							error : function() {
+								alert('시스템 오류 입니다. 관리자에게 문의 하세요');
+							},
+							success : function(resultData) {
+								if (resultData == 0) {
+									$("#pwdChk").show();
+									$("#msg")
+										.text(
+											"작성시 입력한 비밀번호를 입력해 주세요")
+										.css("color", "#000099");
+									butChk = 2;
+								} else {
+									alert("댓글 존재시 게시물을 삭제 할 수 없습니다.\n 댓글 삭제 후 다시 확인해 주세요.");
+									return;
+								}
+							}
 						});
+				});
 
 		/* 비밀번호 확인 버튼 클릭 시 처리 이벤트 */
 		$("#pwdBtn").click(function() {
@@ -75,17 +75,16 @@
 
 		/* 목록 버튼 클릭 시 처리 이벤트 */
 		$("#boardListBtn")
-				.click(
-						function() {
-							location.href = "/board/boardList.do?page=${param.page}&pageSize=${param.pageSize}";
-						});
+			.click(
+				function() {
+					location.href = "/board/boardList.do?page=${param.page}&pageSize=${param.pageSize}";
+				});
 	});
 
 	/* 비밀번호 확인 버튼 클릭시 실절적인 처리 함수*/
 	function boardPwdConfirm() {
 		if (!chkSubmit($('#b_pwd'), "비밀번호를"))
-			return;
-		else {
+			return;else {
 			$.ajax({
 				url : "/board/pwdConfirm.do", //전송 url
 				type : "post", //전송시 method방식
@@ -98,7 +97,7 @@
 					var goUrl = ""; // 이동할 경로를 저장할 변수
 					if (resultData == "실패") { // 일치하지 않는 경우
 						$("#msg").text("작성시 입력한 비밀번호가  일치하지 않습니다.").css(
-								"color", "red");
+							"color", "red");
 						$("#b_pwd").select();
 					} else if (resultData == "성공") { // 일치할 경우 
 						$("#msg").text("");
