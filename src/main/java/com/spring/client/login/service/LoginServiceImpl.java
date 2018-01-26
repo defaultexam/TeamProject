@@ -6,12 +6,16 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.spring.client.login.dao.LoginDao;
 import com.spring.client.login.vo.LoginVO;
+import com.spring.client.member.dao.MemberDao;
+import com.spring.client.member.vo.MemberSecurity;
+import com.spring.common.util.OpenCrypt;
 
 @Service
 @Transactional
 public class LoginServiceImpl implements LoginService {
 
 	@Autowired
+
 	private LoginDao loginDao;
 
 	@Autowired
@@ -39,11 +43,11 @@ public class LoginServiceImpl implements LoginService {
 	@Override
 	public int loginHistoryInsert(LoginVO lvo) {
 		int result;
-		if (userIdSelect(lvo.getUserId())==null) {
-			result=1;
-		}else {
+		if (userIdSelect(lvo.getUserId()) == null) {
+			result = 1;
+		} else {
 			LoginVO vo = loginHistorySelect(lvo.getUserId());
-			if (vo==null) {
+			if (vo == null) {
 				loginDao.loginHistoryInsert(lvo);
 			}
 			result = 2;

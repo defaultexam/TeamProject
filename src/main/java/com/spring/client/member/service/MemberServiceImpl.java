@@ -1,4 +1,4 @@
-package com.spring.slient.member.service;
+package com.spring.client.member.service;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;

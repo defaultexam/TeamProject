@@ -1,4 +1,4 @@
-package com.spring.slient.member.service;
+package com.spring.client.member.service;
 
 import com.spring.client.member.vo.MemberVO;
 
