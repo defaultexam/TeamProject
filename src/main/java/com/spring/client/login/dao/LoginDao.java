@@ -3,7 +3,7 @@ package com.spring.client.login.dao;
 import com.spring.client.login.vo.LoginVO;
 
 public interface LoginDao {
-	public LoginVO userIdSelect(String userid);
+	public LoginVO userIdSelect(String userId);
 
 	public LoginVO loginSelect(LoginVO lvo);
 
@@ -11,5 +11,5 @@ public interface LoginDao {
 
 	public int loginHistoryUpdate(LoginVO lvo);
 
-	public LoginVO loginHistorySelect(String userid);
+	public LoginVO loginHistorySelect(String userId);
 }
