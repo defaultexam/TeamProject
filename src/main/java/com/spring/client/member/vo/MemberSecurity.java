@@ -1,7 +1,7 @@
 package com.spring.client.member.vo;
 
 public class MemberSecurity {
-	private String userid;
+	private String userId;
 	private String salt;
 
 	public MemberSecurity() {
@@ -10,16 +10,16 @@ public class MemberSecurity {
 
 	public MemberSecurity(String userid, String salt) {
 		super();
-		this.userid = userid;
+		this.userId = userid;
 		this.salt = salt;
 	}
 
 	public String getUserid() {
-		return userid;
+		return userId;
 	}
 
 	public void setUserid(String userid) {
-		this.userid = userid;
+		this.userId = userid;
 	}
 
 	public String getSalt() {
@@ -32,7 +32,7 @@ public class MemberSecurity {
 
 	@Override
 	public String toString() {
-		return "MemberSecurity [userid=" + userid + ", salt=" + salt + "]";
+		return "MemberSecurity [userid=" + userId + ", salt=" + salt + "]";
 	}
 
 }
