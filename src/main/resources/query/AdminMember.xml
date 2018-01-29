@@ -33,10 +33,9 @@
 		 COUNT(CASE WHEN age BETWEEN 70 AND 79 THEN 1 END) "70대",
 		 COUNT(CASE WHEN <![CDATA[ age >= 80 ]]> THEN 1 END) "80세이상"
 		 FROM(
-		 SELECT TO_CHAR(sysdate, 'yyyy') –
+		 SELECT (TO_CHAR(sysdate, 'yyyy')) -
 		 CONCAT(CASE WHEN SUBSTR(pinno,8,1) IN ('1','2') THEN '19' ELSE '20' END,
-		 SUBSTR(pinno,1,2)) AS age
-		 FROM spring_member
+		 SUBSTR(pinno,1,2)) AS age FROM spring_member
 		 )
 	</select>
 
@@ -44,7 +43,7 @@
 	<select id="memberGenderList" resultMap="graph">
 	SELECT COUNT(CASE WHEN SUBSTR(pinno,8,1) IN ('1','3') THEN 1 END) "men",
 	COUNT(CASE WHEN SUBSTR(pinno,8,1) IN ('2','4') THEN 1 END) "women"
-	FROM spring_member
+	 FROM spring_member
 	</select>
 
 </mapper>
