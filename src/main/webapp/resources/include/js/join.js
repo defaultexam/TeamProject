@@ -117,10 +117,12 @@ $(function() {
 									+ $("#emailDomain").val());
 					$("#pinno").val(
 							$("#birth").val() + "-" + $("#gender").val());
+					
 					$("#memberForm").attr({
 						"method" : "post",
 						"action" : "/member/join.do"
 					});
+					
 					$("#memberForm").submit();
 				}
 			});

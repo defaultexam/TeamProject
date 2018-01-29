@@ -18,6 +18,7 @@
 		up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
 	<resources mapping="/uploadStorage/**" location="/uploadStorage/" />
+	<resources mapping="/graph/**" location="/graph/" />
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
 		in the /WEB-INF/views directory -->
@@ -30,7 +31,8 @@
 		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
 		<beans:property name="definitions">
 			<beans:list>
-				<beans:value>/WEB-INF/tiles/tiles-setting.xml</beans:value> <!-- <beans:value>/WEB-INF/tiles/admin-setting.xml</beans:value> -->
+				<beans:value>/WEB-INF/tiles/tiles-setting.xml</beans:value>
+				<beans:value>/WEB-INF/tiles/admin-setting.xml</beans:value>
 			</beans:list>
 		</beans:property>
 	</beans:bean>
