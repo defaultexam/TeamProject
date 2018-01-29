@@ -1,3 +1,12 @@
+/* 함수명: getDateFormat(날자 데이터)  * 설명 : dataValue의 값을 년-월-일 형식(예시: 2018-01-01)으로 반환.*/
+function getDateFormat(dateValue) {
+	var year = dateValue.getFullYear();
+	var month = dateValue.getMonth() + 1;
+	month = (month < 10) ? "0" + month : month; var day = dateValue.getDate();
+	day = (day < 10) ? "0" + day : day; var result = year + "-" + month + "-" + day;
+	return result;
+}
+
 /* 함수명: chkSubmit(유효성 체크 대상, 메시지 내용)  
  * * 출력영역: alert으로. 
  * * 예시 : if(!chkSubmit($('#keyword'),"검색어를")) return;
@@ -72,7 +81,7 @@ function chkFile(item) {
  * inputVerify(배열 인덱스번호, 비교할 값, 출력영역) *
  */
 var pattern = [ "((?=.*[a-zA-Z])(?=.*[0-9]).{6,10})",
-		"((?=.*[a-zA-Z])(?=.*[0-9@#$%]).{8,12})", "^\\d{3}-\\d{3,4}-\\d{4}" ];
+	"((?=.*[a-zA-Z])(?=.*[0-9@#$%]).{8,12})", "^\\d{3}-\\d{3,4}-\\d{4}" ];
 function inputVerify(index, data, printarea) {
 	var data_regExp = new RegExp(pattern[index]);
 	var match = data_regExp.exec($(data).val());
