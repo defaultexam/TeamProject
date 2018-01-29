@@ -40,10 +40,10 @@ public class ReplyController {
 	public ResponseEntity<List<ReplyVO>> list(@PathVariable("b_num") Integer b_num) {
 		ResponseEntity<List<ReplyVO>> entity = null;
 		try {
-			entity = new ResponseEntity<>(replyService.replyList(b_num), HttpStatus.OK);
+			entity = new ResponseEntity<List<ReplyVO>>(replyService.replyList(b_num), HttpStatus.OK);
 		} catch (Exception e) {
 			e.printStackTrace();
-			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+			entity = new ResponseEntity<List<ReplyVO>>(HttpStatus.BAD_REQUEST);
 		}
 		return entity;
 	}
